@@ -1,0 +1,83 @@
+{
+    "courses":[
+    {
+        "id":1,
+        "curso": "Tecnologia em Alimentos",
+        "nivelDeEnsino": "Superior",
+        "duracao": "3 anos",
+        "municipio": "Coxim"
+    },
+    
+    {
+        "id":2,
+        "curso": "Desenvolvimento de Sistemas",
+        "nivelDeEnsino": "Técnico Integrado",
+        "duracao": "3 anos",
+        "municipio": "Coxim"
+    },
+
+    {
+        "id":3,
+        "curso": "Agronomia",
+        "nivelDeEnsino": "Graduação",
+        "duracao": "5 anos",
+        "municipio": "Naviraí"
+    },
+
+    {
+        "id":4,
+        "curso": "Tecnologia em Análise e Desenvolvimento de Sistemas",
+        "nivelDeEnsino": "Graduação",
+        "duracao": "3 anos",
+        "municipio": "Naviraí"
+    },
+
+    {
+        "id":5,
+        "curso": "Administração",
+        "nivelDeEnsino": "Técnico Subsequente",
+        "duracao": "2 anos",
+        "municipio": "Naviraí"
+    },
+
+    {
+        "id":6,
+        "curso": "Docência para Educação Profissional e Tecnológica",
+        "nivelDeEnsino": "Pós Graduação",
+        "duracao": "2 anos",
+        "municipio": "Naviraí"
+    },
+
+    {
+        "id":7,
+        "curso": "Tecnologia em Jogos Digitais",
+        "nivelDeEnsino": "Graduação",
+        "duracao": "3 anos",
+        "municipio": "Dourados"
+    },
+
+    {
+        "id":8,
+        "curso": "Engenharia Elétrica",
+        "nivelDeEnsino": "Graduação",
+        "duracao": "5 anos",
+        "municipio": "Campo Grande"
+    },
+
+    {
+        "id":9,
+        "curso": "Tecnologia em Sistemas para Internet",
+        "nivelDeEnsino": "Graduação",
+        "duracao": "2 anos e meio",
+        "municipio": "Campo Grande"
+    },
+
+    {
+        "id":10,
+        "curso": "Engenharia Mecânica",
+        "nivelDeEnsino": "Graduação",
+        "duracao": "5 anos",
+        "municipio": "Campo Grande"
+    }
+ ]
+}
