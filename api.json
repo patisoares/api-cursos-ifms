@@ -1,4 +1,31 @@
 {
+    "levels":[
+    {
+        "id":1,
+        "descricao":"Superior"    
+    },
+    {
+        "id":2,
+        "descricao":"Graduação"    
+    },
+    {
+        "id":3,
+        "descricao":"Pós Graduação"    
+    },
+    {
+        "id":4,
+        "descricao":"Técnico Subsequente"    
+    },
+    {
+        "id":5,
+        "descricao":"Técnico Integrado"    
+    },{
+        "id":6,
+        "descricao":"Ensino Médio"    
+    }
+
+    ],
+
     "courses":[
     {
         "id":1,
