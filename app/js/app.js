@@ -1,10 +1,13 @@
 const apiData = document.querySelector('.api-data')
 const levelFilter = document.querySelector('.level-filter')
-
+const spinner = document.querySelector('.spinner-grow')
+spinner.style.display="none"
 
 async function getCourses(){
     const url = "http://localhost:3000/courses"
+    spinner.style.display="block"
     const response = await axios.get(url);
+    spinner.style.display="none"
     const courseList = Array.from(response.data)
 
     courseList.forEach(async function(course){
@@ -12,7 +15,8 @@ async function getCourses(){
           <div class="card m-2" style="width:260px">
         
         <section class="card-body">
-        <h3 class-"card-title">${course.curso}</h3>
+        <h7 class-"card-title">${course.curso}</h7>
+        <p></p>
         <p>Nivel de Ensino: ${course.nivelDeEnsino}</p>
         <p>Duração: ${course.duracao}</p>
         <p>Município: ${course.municipio}</p>
@@ -22,7 +26,9 @@ async function getCourses(){
 
 async function search (query){
     const url = `http://localhost:3000/courses?q=${query}`
+    spinner.style.display="block"
     const response = await axios.get(url);
+    spinner.style.display="none"
     const courseList = Array.from(response.data)
     apiData.innerHTML=""
     
@@ -31,7 +37,7 @@ async function search (query){
         <div class="card m-2" style="width:260px">
       
       <section class="card-body">
-      <h3 class-"card-title">${course.curso}</h3>
+      <h4 class-"card-title">${course.curso}</h4>
       <p>Nivel de Ensino: ${course.nivelDeEnsino}</p>
       <p>Duração: ${course.duracao}</p>
       <p>Município: ${course.municipio}</p>
@@ -40,7 +46,9 @@ async function search (query){
 }
 async function getLevels(){
     const url=`http://localhost:3000/levels`
+    spinner.style.display="block"
     const response = await axios.get(url)
+    spinner.style.display="none"
     const levelList = Array.from(response.data)
 
     levelList.forEach(function(level){
