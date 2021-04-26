@@ -1,54 +1,56 @@
+import getData from "./api.js";
+
 const apiData = document.querySelector('.api-data')
 const levelFilter = document.querySelector('.level-filter')
 const spinner = document.querySelector('.spinner-grow')
+showSpinner(false)
+
+function showSpinner(isShow=false){
+    if(isShow){
+        spinner.style.display="block"
+        return
+}
 spinner.style.display="none"
-
-async function getCourses(){
-    const url = "http://localhost:3000/courses"
-    spinner.style.display="block"
-    const response = await axios.get(url);
-    spinner.style.display="none"
-    const courseList = Array.from(response.data)
-
-    courseList.forEach(async function(course){
-          apiData.innerHTML+= `
-          <div class="card m-2" style="width:260px">
-        
-        <section class="card-body">
-        <h7 class-"card-title">${course.curso}</h7>
-        <p></p>
-        <p>Nivel de Ensino: ${course.nivelDeEnsino}</p>
-        <p>Duração: ${course.duracao}</p>
-        <p>Município: ${course.municipio}</p>
-    `
-})
 }
 
-async function search (query){
-    const url = `http://localhost:3000/courses?q=${query}`
-    spinner.style.display="block"
-    const response = await axios.get(url);
-    spinner.style.display="none"
-    const courseList = Array.from(response.data)
-    apiData.innerHTML=""
-    
-    courseList.forEach(function(course){
+function renderCourses(courseList){
+    courseList.forEach(async function(course){
         apiData.innerHTML+= `
         <div class="card m-2" style="width:260px">
       
       <section class="card-body">
-      <h4 class-"card-title">${course.curso}</h4>
+      <h7 class-"card-title">${course.curso}</h7>
+      <p></p>
       <p>Nivel de Ensino: ${course.nivelDeEnsino}</p>
       <p>Duração: ${course.duracao}</p>
       <p>Município: ${course.municipio}</p>
   `
 })
+
+}
+
+async function getCourses(){
+    showSpinner(true)
+    const response = await getData('courses');
+    showSpinner(false)
+    const courseList = Array.from(response.data)
+    renderCourses(courseList)
+ 
+}
+
+async function search (query){
+    
+    showSpinner(true)
+    const response = await getData(`courses?q=${query}`);
+    showSpinner(false)
+    const courseList = Array.from(response.data)
+    apiData.innerHTML=""
+    renderCourses(courseList)    
 }
 async function getLevels(){
-    const url=`http://localhost:3000/levels`
-    spinner.style.display="block"
-    const response = await axios.get(url)
-    spinner.style.display="none"
+    showSpinner(true)
+    const response = await getData('levels')
+    showSpinner(false)
     const levelList = Array.from(response.data)
 
     levelList.forEach(function(level){
