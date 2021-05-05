@@ -13,8 +13,10 @@ function showSpinner(isShow=false){
 spinner.style.display="none"
 }
 
+
+
 function renderCourses(courseList){
-    courseList.forEach(async function(course){
+        courseList.forEach(async function(course){
         apiData.innerHTML+= `
         <div class="card m-2" style="width:260px">
       
@@ -25,9 +27,8 @@ function renderCourses(courseList){
       <p>Duração: ${course.duracao}</p>
       <p>Município: ${course.municipio}</p>
   `
-})
-
-}
+ })
+ }
 
 async function getCourses(){
     showSpinner(true)
@@ -43,10 +44,19 @@ async function search (query){
     showSpinner(true)
     const response = await getData(`courses?q=${query}`);
     showSpinner(false)
-    const courseList = Array.from(response.data)
-    apiData.innerHTML=""
-    renderCourses(courseList)    
-}
+    
+    
+        const courseList = Array.from(response.data)
+        if(courseList.length==0){
+           return apiData.innerHTML=
+            `<div class="alert alert-info" role="alert">
+            Nenhum resultado encontrado para ${query}!
+             </div>`
+             
+        }
+        apiData.innerHTML=""
+        renderCourses(courseList)    
+    }
 async function getLevels(){
     showSpinner(true)
     const response = await getData('levels')
@@ -69,7 +79,6 @@ levelFilter.addEventListener('change',function(){
 })
 getCourses()
 getLevels()
-
 
 
 
